@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Cryptocat</string>
+    <string name="ticker_text">Cryptocat on yhteydessä</string>
+    <string name="title_conversation_detail">Keskustelun tiedot</string>
+    <string name="send">Lähetä</string>
+    <string name="saysomething">Sano jotakin :3</string>
+    <string name="join">Liity</string>
+    <string name="room_name">Huoneen nimi</string>
+    <string name="nickname">Nimimerkki</string>
+    <string name="join_room">Anna keskustelulle nimi.\nJaa se ihmisille, joille haluat keskustella.</string>
+    <string name="connecting_to_server">Yhdistetään palvelimelle…</string>
+    <string name="not_connected_to_server">Et ole yhdistettynä tälle palvelimelle.</string>
+    <string name="reconnect">Yhdistä uudelleen</string>
+    <string name="welcome">Tervetuloa Cryptocatiin!</string>
+    <string name="connect_to_cryptocat">Ala rupattelemaan!</string>
+    <string name="about_cryptocat">Kunnia Cryptocatista kuuluu näille tyypeille</string>
+    <string name="about_cryptocat_2">Cryptocat antaa teidän keskustella yksityisesti. Mahtavan Cryptocat‐tiimin tekemä. 
+	Android‐sovellus on minun tekemäni :3
+    </string>
+    <string name="notification_text"></string>
+    <string name="cryptocat">Cryptocat</string>
+    <string name="version">Versio</string>
+	<string name="connect">Yhdistä</string>
+    <string name="connect_to_server">Yhdistä palvelimelle</string>
+    <string name="my_info">Tietoni</string>
+    <string name="people">Ihmiset</string>
+    <string name="show_my_fingerprints">Näytä sormenjälkeni</string>
+    <string name="add_server">Lisää palvelin</string>
+    <string name="disconnect">Katkaise yhteys</string>
+    <string name="group_conversation_fingerprint">Ryhmäkeskustelun sormenjälki:</string>
+    <string name="new_text">Uusi teksti</string>
+    <string name="leave_conversation">Poistu keskustelusta</string>
+    <string name="private_conversation_fingerprint">Yksityisen keskustelun sormenjälki:</string>
+    <string name="choice_server">Valitse palvelin</string>
+    <string name="loltestroom">loltestihuone</string>
+    <string name="text">teksti</string>
+    <string name="nick">nimi</string>
+</resources>
