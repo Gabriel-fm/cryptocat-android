@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.NinePatchDrawable;
+import android.text.Spannable;
+import android.text.style.ImageSpan;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -17,7 +19,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import net.dirbaio.cryptocat.service.CryptocatMessage;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MessageListView extends ListView
 {
@@ -199,6 +205,55 @@ public class MessageListView extends ListView
             return a.nickname.equals(b.nickname);
         }
 
+
+        private final Spannable.Factory spannableFactory = Spannable.Factory
+                .getInstance();
+
+        private final Map<Pattern, Integer> emoticons = new HashMap<Pattern, Integer>();
+        {
+            addPattern(emoticons, ":)", R.drawable.smile);
+            addPattern(emoticons, ":-)", R.drawable.smile);
+            addPattern(emoticons, "^_^", R.drawable.smile);
+
+        }
+
+        private void addPattern(Map<Pattern, Integer> map, String smile,
+                                int resource) {
+            map.put(Pattern.compile(Pattern.quote(smile)), resource);
+        }
+
+        public boolean addSmiles(Context context, Spannable spannable) {
+            boolean hasChanges = false;
+            for (Map.Entry<Pattern, Integer> entry : emoticons.entrySet()) {
+                Matcher matcher = entry.getKey().matcher(spannable);
+                while (matcher.find()) {
+                    boolean set = true;
+                    for (ImageSpan span : spannable.getSpans(matcher.start(),
+                            matcher.end(), ImageSpan.class))
+                        if (spannable.getSpanStart(span) >= matcher.start()
+                                && spannable.getSpanEnd(span) <= matcher.end())
+                            spannable.removeSpan(span);
+                        else {
+                            set = false;
+                            break;
+                        }
+                    if (set) {
+                        hasChanges = true;
+                        spannable.setSpan(new ImageSpan(context, entry.getValue()),
+                                matcher.start(), matcher.end(),
+                                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    }
+                }
+            }
+            return hasChanges;
+        }
+
+        public Spannable getSmiledText(Context context, CharSequence text) {
+            Spannable spannable = spannableFactory.newSpannable(text);
+            addSmiles(context, spannable);
+            return spannable;
+        }
+
         public View getView(int position, View view, ViewGroup parent)
         {
             CryptocatMessage msg = getItem(position);
@@ -257,7 +312,14 @@ public class MessageListView extends ListView
             }
 
             if(holder.text != null)
-                holder.text.setText(msg.text);
+            {
+                if (msg.text.contains(":)"))
+                {
+                    holder.text.setText(getSmiledText(this.getContext(),msg.text));
+
+                }else
+                    holder.text.setText(msg.text);
+            }
 
             view.setPadding(
                     view.getPaddingLeft(),

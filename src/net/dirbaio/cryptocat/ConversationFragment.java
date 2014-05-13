@@ -32,6 +32,7 @@ public class ConversationFragment extends BaseFragment implements CryptocatMessa
 	private EditText text;
 
 	/**
+     *
 	 * Mandatory empty constructor for the fragment manager to instantiate the
 	 * fragment (e.g. upon screen orientation changes).
 	 */
