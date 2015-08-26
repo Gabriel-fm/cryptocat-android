@@ -1,6 +1,6 @@
 [submodule "deps/SlidingMenu"]
 	path = deps/SlidingMenu
-	url = git@github.com:jfeinstein10/SlidingMenu.git
+	url = https://git@github.com/jfeinstein10/SlidingMenu.git
 [submodule "deps/ActionBarSherlock"]
 	path = deps/ActionBarSherlock
-	url = git@github.com:JakeWharton/ActionBarSherlock.git
+	url = https://git@github.com/JakeWharton/ActionBarSherlock.git
