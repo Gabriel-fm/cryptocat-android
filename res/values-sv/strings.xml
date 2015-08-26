@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Cryptocat</string>
+    <string name="ticker_text">Cryptocat är ansluten</string>
+    <string name="title_conversation_detail">Rumsdetaljer</string>
+    <string name="send">Skicka</string>
+    <string name="saysomething">Säg något :3</string>
+    <string name="join">Gå med</string>
+    <string name="room_name">Rumsnamn</string>
+    <string name="nickname">Smeknamn</string>
+    <string name="join_room">Ange ett namn för ditt rum.\nDela det med de du vill prata med.</string>
+    <string name="connecting_to_server">Ansluter till server...</string>
+    <string name="not_connected_to_server">Du är inte ansluten till den här servern.</string>
+    <string name="reconnect">Återanslut</string>
+    <string name="welcome">Välkommen till Cryptocat!</string>
+    <string name="connect_to_cryptocat">Börja prata!</string>
+    <string name="about_cryptocat">Cryptocat credits go here</string>
+    <string name="about_cryptocat_2">Cryptocat är fantastiskt och låter dig prata med bibehållen personlig integritet. Skapad av det fantastiska Cryptocatgänget. Android appen är skapad av mig :3
+    </string>
+    <string name="notification_text"></string>
+    <string name="cryptocat">Cryptocat</string>
+    <string name="version">Version</string>
+	<string name="connect">Anslut</string>
+    <string name="connect_to_server">Anslut till server</string>
+    <string name="my_info">Min info</string>
+    <string name="people">Deltagare</string>
+    <string name="show_my_fingerprints">Visa mina avtryck</string>
+    <string name="add_server">Lägg till server</string>
+    <string name="disconnect">Koppla ner</string>
+    <string name="group_conversation_fingerprint">Grupprumsavtryck:</string>
+    <string name="new_text">Ny Text</string>
+    <string name="leave_conversation">Lämna rum</string>
+    <string name="private_conversation_fingerprint">Privatrumsavtryck:</string>
+    <string name="choice_server">Välj en server</string>
+    <string name="loltestroom">loltestrum</string>
+    <string name="text">text</string>
+    <string name="nick">smeknamn</string>
+</resources>

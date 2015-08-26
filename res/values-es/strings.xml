@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Cryptocat</string>
+    <string name="ticker_text">Cryptocat está conectado</string>
+    <string name="title_conversation_detail">Detalles de la conversación</string>
+    <string name="send">Enviar</string>
+    <string name="saysomething">Di algo :3</string>
+    <string name="join">Unirse</string>
+    <string name="room_name">Room name</string>
+    <string name="nickname">Nickname</string>
+    <string name="join_room">Introduce un nombre para tu conversación.\nCompartelo con la gente con la que te gustaría hablar.</string>
+    <string name="connecting_to_server">Conectando al servidor...</string>
+    <string name="not_connected_to_server">No estás conectado a este servidor.</string>
+    <string name="reconnect">Reconectar</string>
+    <string name="welcome">¡Bienvenido a Cryptocat!</string>
+    <string name="connect_to_cryptocat">¡Empieza a chatear!</string>
+    <string name="about_cryptocat">Los créditos de Cryptocat van aquí</string>
+    <string name="about_cryptocat_2">Cryptocat es increible y te permite chatear con privacidad. Hecho por el increible equipo de Cryptocat. Aplicación Android hecha por mi :3
+    </string>
+    <string name="notification_text"></string>
+    <string name="cryptocat">Cryptocat</string>
+    <string name="version">Versión</string>
+	<string name="connect">Conectar</string>
+    <string name="connect_to_server">Conectar al servidor</string>
+    <string name="my_info">Mi información</string>
+    <string name="people">Gente</string>
+    <string name="show_my_fingerprints">Mostrar mis huellas</string>
+    <string name="add_server">Añadir servidor</string>
+    <string name="disconnect">Desconectar</string>
+    <string name="group_conversation_fingerprint">Huella de la conversación en grupo:</string>
+    <string name="new_text">Nuevo texto</string>
+    <string name="leave_conversation">Dejar conversación</string>
+    <string name="private_conversation_fingerprint">Huellas de la conversación privada:</string>
+    <string name="choice_server">Elegir un servidor</string>
+    <string name="loltestroom">loltestroom</string>
+    <string name="text">texto</string>
+    <string name="nick">nick</string>
+</resources>
