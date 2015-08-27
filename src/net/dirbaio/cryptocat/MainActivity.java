@@ -46,7 +46,7 @@ public class MainActivity extends SherlockFragmentActivity implements BaseFragme
         PRNGFixes.apply();
 
 		//Start the service if it isn't already started.
-		startService(new Intent(this, CryptocatService.class));
+		//startService(new Intent(this, CryptocatService.class));
 
 		handler = new Handler();
 
@@ -113,6 +113,9 @@ public class MainActivity extends SherlockFragmentActivity implements BaseFragme
 	{
 		super.onResume();
 
+		//Start the service if it isn't already started.
+		startService(new Intent(this, CryptocatService.class));
+
 		//Bind to the service.
 		//This is only useful to ensure the service is started when we use it.
 		//All communication with the service is done via CryptocatService.getInstance()
@@ -127,6 +130,13 @@ public class MainActivity extends SherlockFragmentActivity implements BaseFragme
 
 		if(bound)
 			unbindService(connection);
+
+		if (!CryptocatService.getInstance().hasServers())
+		{
+			Intent serviceIntent = new Intent(this, CryptocatService.class);
+			stopService(serviceIntent);
+		}
+
 	}
 
 	private void setFragment(int id, Fragment fragment)

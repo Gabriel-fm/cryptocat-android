@@ -1,7 +1,12 @@
 package net.dirbaio.cryptocat;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,14 +78,15 @@ public class ConversationListFragment extends BaseListFragment implements Crypto
 	public void onResume()
 	{
 		super.onResume();
-		getService().addStateListener(this);
+		/*getService().addStateListener(this);
 		conversationArrayAdapter = new ConversationAdapter(getAltContext(), conversations);
 		setListAdapter(conversationArrayAdapter);
 
-		getService().addStateListener(this);
 		stateChanged(); //Fire initial update.
 
-		setActivateOnItemClick(true);
+		setActivateOnItemClick(true);*/
+		Intent intent = new Intent(getActivity(), CryptocatService.class);
+		getActivity().bindService(intent, connection, Context.BIND_AUTO_CREATE);
 	}
 
 	@Override
@@ -88,6 +94,8 @@ public class ConversationListFragment extends BaseListFragment implements Crypto
 	{
 		super.onPause();
 		getService().removeStateListener(this);
+		getActivity().unbindService(connection);
+
 	}
 
 	@Override
@@ -270,5 +278,33 @@ public class ConversationListFragment extends BaseListFragment implements Crypto
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
+
+	private ServiceConnection connection = new ServiceConnection()
+	{
+
+		@Override
+		public void onServiceConnected(ComponentName className, IBinder service) {
+
+			//It's important to create the conversation list before calling selectItem()
+
+
+					getService().addStateListener(ConversationListFragment.this);
+					conversationArrayAdapter = new ConversationAdapter(getAltContext(), conversations);
+					setListAdapter(conversationArrayAdapter);
+
+					stateChanged(); //Fire initial update.
+
+					setActivateOnItemClick(true);
+
+		}
+
+		@Override
+		public void onServiceDisconnected(ComponentName arg0) {
+
+		}
+	};
+
+
 }
 

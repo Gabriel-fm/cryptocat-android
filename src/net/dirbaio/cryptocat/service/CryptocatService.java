@@ -99,6 +99,8 @@ public class CryptocatService extends Service implements CryptocatStateListener
 	@Override
 	public void onDestroy()
 	{
+		serviceLooper.quit();
+
 		instance = null;
 	}
 
