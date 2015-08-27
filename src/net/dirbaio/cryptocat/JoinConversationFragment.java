@@ -97,6 +97,6 @@ public class JoinConversationFragment extends BaseFragment
 	protected void onMustUpdateTitle(ActionBar ab)
 	{
         ab.setTitle("Cryptocat");
-        ab.setSubtitle("Join chat room");
+        ab.setSubtitle(getResources().getString(R.string.join_chat_room));
 	}
 }

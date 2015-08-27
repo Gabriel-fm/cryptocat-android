@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Translated by gabriel-fm -->
 <resources>
 
     <string name="app_name">Cryptocat</string>
@@ -36,4 +37,11 @@
     <string name="loltestroom">loltestroom</string>
     <string name="text">texto</string>
     <string name="nick">nick</string>
+    <string name="your_nickname">Tu nombre de usuario</string>
+    <string name="conversation_name">Nombre de la conversación</string>
+    <string name="join_chat_room">Unirse a un chat</string>
+    <string name="btn_connect">Conectarse</string>
+    <string name="warn_mitm_attack">Para asegurarse de no ser una victima de un ataque man-in-the-middle, siempre debe comprobar las huellas de sus contactos a través de un canal seguro, como por ejemplo, por teléfono.</string>
+
+
 </resources>

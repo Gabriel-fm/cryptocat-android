@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Translated by dzlab -->
+<resources>
+
+    <string name="app_name">Cryptocat</string>
+    <string name="ticker_text">Cryptocat est connecté</string>
+    <string name="title_conversation_detail">Détail de Conversation</string>
+    <string name="send">Envoyer</string>
+    <string name="saysomething">Dis quelque chose :3</string>
+    <string name="join">Joindre</string>
+    <string name="room_name">Nom de la salle</string>
+    <string name="nickname">Surnom</string>
+    <string name="join_room">Entrer un nom pour votre conversation.\nPartager le avec les personnes avec qui vous voudriez échanger.</string>
+    <string name="connecting_to_server">Connexion au serveur en cours...</string>
+    <string name="not_connected_to_server">Vous n\'êtes pas connecté à ce serveur.</string>
+    <string name="reconnect">Reconnecter</string>
+    <string name="welcome">Bienvenue à Cryptocat!</string>
+    <string name="connect_to_cryptocat">Commencer à chatter!</string>
+    <string name="about_cryptocat">Cryptocat credits go here</string>
+    <string name="about_cryptocat_2">Cryptocat est superbe, il vous permet de chatter en privé. Réaliser par la superbe équipe Cryptocat. Appli Android faite par moi :3
+    </string>
+    <string name="notification_text"></string>
+    <string name="cryptocat">Cryptocat</string>
+    <string name="version">Version</string>
+    <string name="connect">Se connecter</string>
+    <string name="connect_to_server">Se connect au serveur</string>
+    <string name="my_info">Mes informations</string>
+    <string name="people">Personnes</string>
+    <string name="show_my_fingerprints">Montrer mon empreintes digitales</string>
+    <string name="add_server">Ajouter un serveur</string>
+    <string name="disconnect">Se déconnecter</string>
+    <string name="group_conversation_fingerprint">Empreinte digitale de conversation en groupe:</string>
+    <string name="new_text">Nouveau texte</string>
+    <string name="leave_conversation">Quitter la conversation</string>
+    <string name="private_conversation_fingerprint">Empreinte digitale de conversation privée:</string>
+    <string name="choice_server">Choisir un serveur</string>
+    <string name="loltestroom">loltestroom</string>
+    <string name="text">texte</string>
+    <string name="nick">nick</string>
+
+    <!-- Must be translated -->
+    <string name="your_nickname">Your nickname</string>
+    <string name="conversation_name">Conversation name</string>
+    <string name="join_chat_room">Join chat room</string>
+    <string name="btn_connect">Connect</string>
+    <string name="warn_mitm_attack">To ensure you're not the victim of a man-in-the-middle attack, you should always check people's fingerprints over a secure channel, such as by phone.</string>
+</resources>

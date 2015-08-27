@@ -37,4 +37,10 @@
     <string name="loltestroom">loltestroom</string>
     <string name="text">text</string>
     <string name="nick">nick</string>
+    <string name="your_nickname">Your nickname</string>
+    <string name="conversation_name">Conversation name</string>
+    <string name="join_chat_room">Join chat room</string>
+    <string name="btn_connect">Connect</string>
+    <string name="warn_mitm_attack">To ensure you're not the victim of a man-in-the-middle attack, you should always check people's fingerprints over a secure channel, such as by phone.</string>
+
 </resources>

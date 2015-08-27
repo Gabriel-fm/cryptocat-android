@@ -62,19 +62,19 @@
                         android:layout_height="wrap_content"
                         android:padding="16dp"
                         android:id="@+id/name"
-                        android:inputType="textAutoCorrect" android:hint="Conversation name" android:layout_weight="0.05"/>
+                        android:inputType="textAutoCorrect" android:hint="@string/conversation_name" android:layout_weight="0.05"/>
                 <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="16dp"
                         android:id="@+id/nickname"
-                        android:inputType="textAutoCorrect" android:hint="Your nickname"/>
+                        android:inputType="textAutoCorrect" android:hint="@string/your_nickname"/>
             </LinearLayout>
 
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Connect"
+                    android:text="@string/btn_connect"
                     android:id="@+id/join_button"
                     android:layout_gravity="center"
                     android:layout_marginTop="32dp"
