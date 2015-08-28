@@ -1,6 +1,10 @@
 package net.dirbaio.cryptocat;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,15 +15,25 @@ import com.actionbarsherlock.view.MenuItem;
 import net.dirbaio.cryptocat.serverlist.ServerConfig;
 import net.dirbaio.cryptocat.service.CryptocatServer;
 import net.dirbaio.cryptocat.service.CryptocatService;
+import net.dirbaio.cryptocat.service.CryptocatStateListener;
 
 import java.util.List;
 
 public class ServerListFragment extends BaseListFragment
 {
     @Override
+    public void onPause() {
+        super.onPause();
+        getActivity().unbindService(connection);
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
-        setListAdapter(new ServersAdapter(getAltContext(), CryptocatService.getInstance().serverList.servers));
+        Intent intent = new Intent(getActivity(), CryptocatService.class);
+        getActivity().bindService(intent, connection, 0);
+
+        //setListAdapter(new ServersAdapter(getAltContext(), CryptocatService.getInstance().serverList.servers));
 
                 /*
         serversListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -101,4 +115,18 @@ public class ServerListFragment extends BaseListFragment
             return view;
         }
     }
+
+
+
+    private ServiceConnection connection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            setListAdapter(new ServersAdapter(getAltContext(), CryptocatService.getInstance().serverList.servers));
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+
+        }
+    };
 }
