@@ -43,5 +43,5 @@
     <string name="conversation_name">Conversation name</string>
     <string name="join_chat_room">Join chat room</string>
     <string name="btn_connect">Connect</string>
-    <string name="warn_mitm_attack">To ensure you're not the victim of a man-in-the-middle attack, you should always check people's fingerprints over a secure channel, such as by phone.</string>
+    <string name="warn_mitm_attack">To ensure you\'re not the victim of a man-in-the-middle attack, you should always check people\'s fingerprints over a secure channel, such as by phone.</string>
 </resources>
