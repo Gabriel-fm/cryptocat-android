@@ -31,7 +31,7 @@ public class MainActivity extends SherlockFragmentActivity implements BaseFragme
 
 	public BaseFragment currCenterFragment;
 	public BaseFragment currRightFragment;
-	private ConversationListFragment conversationList;
+	private ConversationListFragment conversationList = null;
 	private String selectedServer, selectedConversation, selectedBuddy;
 
 	private boolean bound = false;
@@ -260,11 +260,16 @@ public class MainActivity extends SherlockFragmentActivity implements BaseFragme
 				public void run()
 				{
 					//Create conversation list
-					conversationList = new ConversationListFragment();
-					setLeftFragment(conversationList);
+					//Only creates it if doesn't exist before
+					//If not, calling the notification area would recreate the conversationList each time
+					if (conversationList == null)
+					{
+						conversationList = new ConversationListFragment();
+						setLeftFragment(conversationList);
 
-					//All done, service is started, now set contents!
-					selectItem(selectedServer, selectedConversation, selectedBuddy);
+						//All done, service is started, now set contents!
+						selectItem(selectedServer, selectedConversation, selectedBuddy);
+					}
 				}
 			});
 		}

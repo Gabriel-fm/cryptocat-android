@@ -108,6 +108,8 @@ public class CryptocatService extends Service implements CryptocatStateListener
 	public int onStartCommand(Intent intent, int flags, int startId)
 	{
 		Intent notificationIntent = new Intent(this, MainActivity.class);
+		//TODO: If new activities are created, they may move below the main activity  as it is SingleTop
+		//Maybe should be controlled under the onNewIntent in the Main Activity.
 		PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 
 		Notification notification = new NotificationCompat.Builder(this.getApplicationContext())
