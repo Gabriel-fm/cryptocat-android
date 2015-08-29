@@ -41,6 +41,8 @@ public abstract class Conversation implements ConversationItem
 		this.server = server;
 		this.nickname = nickname;
 		this.state = State.Left;
+
+		addMessageListener(CryptocatService.getInstance());
 	}
 
     protected final void setState(State newState)

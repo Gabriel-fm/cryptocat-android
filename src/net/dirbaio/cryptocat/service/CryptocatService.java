@@ -1,8 +1,10 @@
 package net.dirbaio.cryptocat.service;
 
 import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.os.*;
 import android.os.Process;
@@ -18,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CryptocatService extends Service implements CryptocatStateListener
+public class CryptocatService extends Service implements CryptocatStateListener, CryptocatMessageListener
 {
 
 	private static CryptocatService instance;
@@ -34,6 +36,8 @@ public class CryptocatService extends Service implements CryptocatStateListener
 	private final Map<String, CryptocatServer> servers = new HashMap<>();
 	private final List<CryptocatStateListener> listeners = new ArrayList<>();
 
+	private boolean mainVisible = true;
+
 	// Binder given to clients
 	private final IBinder binder = new CryptocatBinder();
 
@@ -43,6 +47,8 @@ public class CryptocatService extends Service implements CryptocatStateListener
 	{
 		return !servers.isEmpty();
 	}
+
+
 
 	/**
 	 * Class used for the client Binder.  Because we know this service always
@@ -172,16 +178,12 @@ public class CryptocatService extends Service implements CryptocatStateListener
 
 	void post(final ExceptionRunnable r)
 	{
-		serviceHandler.post(new Runnable()
-		{
+		serviceHandler.post(new Runnable() {
 			@Override
-			public void run()
-			{
-				try
-				{
+			public void run() {
+				try {
 					r.run();
-				} catch (Exception e)
-				{
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
@@ -241,5 +243,39 @@ public class CryptocatService extends Service implements CryptocatStateListener
 				}
 			}
 		});
+	}
+
+	public void setMainVisible(boolean bool)
+	{
+		mainVisible = bool;
+	}
+
+	public void messageReceived(CryptocatMessage message)
+	{
+
+		// TODO: sound and vibrator working with notifications (make it optional)
+		// Only shows in the notification area if the app si not in foreground
+		if ( !mainVisible ) {
+			NotificationManager mNotificationManager =
+					(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+			int notifyID = 1;
+
+			Intent notificationIntent = new Intent(this, MainActivity.class);
+			notificationIntent.putExtra("reason", "newmessage");
+
+			PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+			NotificationCompat.Builder mNotifyBuilder = new NotificationCompat.Builder(this.getApplicationContext())
+					.setContentTitle(getText(R.string.ticker_text))
+					.setContentText("You have new messages!")
+					.setSmallIcon(R.drawable.ic_launcher)
+					.setContentIntent(pendingIntent);
+
+
+			mNotificationManager.notify(
+					notifyID,
+					mNotifyBuilder.build());
+
+		}
 	}
 }

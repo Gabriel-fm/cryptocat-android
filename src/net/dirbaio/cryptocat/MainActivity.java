@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
@@ -108,6 +109,15 @@ public class MainActivity extends SherlockFragmentActivity implements BaseFragme
 		return true;
 	}
 */
+@Override
+protected void onNewIntent(Intent intent) {
+
+	String reason = intent.getStringExtra("reason");
+	if (reason != null && reason.equals("newmessage")) {
+		//TODO: show the conversation list as it comes due to a new message, to search it easily
+	}
+}
+
 	@Override
 	protected void onResume()
 	{
@@ -127,6 +137,7 @@ public class MainActivity extends SherlockFragmentActivity implements BaseFragme
 	protected void onPause()
 	{
 		super.onPause();
+		CryptocatService.getInstance().setMainVisible(false);
 
 		if(bound)
 			unbindService(connection);
@@ -201,7 +212,7 @@ public class MainActivity extends SherlockFragmentActivity implements BaseFragme
 	@Override
 	public void showContent()
 	{
-		sm.showContent();
+		sm.showMenu();
 	}
 
 	public void selectItem(String server, String conversation, String buddy)
@@ -245,6 +256,8 @@ public class MainActivity extends SherlockFragmentActivity implements BaseFragme
 		updateFragmentVisibility();
 	}
 
+
+
 	private ServiceConnection connection = new ServiceConnection()
 	{
 
@@ -269,6 +282,8 @@ public class MainActivity extends SherlockFragmentActivity implements BaseFragme
 
 						//All done, service is started, now set contents!
 						selectItem(selectedServer, selectedConversation, selectedBuddy);
+
+						CryptocatService.getInstance().setMainVisible(true);
 					}
 				}
 			});
@@ -277,6 +292,7 @@ public class MainActivity extends SherlockFragmentActivity implements BaseFragme
 		@Override
 		public void onServiceDisconnected(ComponentName arg0) {
 			bound = false;
+
 			//This is not supposed to happen unless we manually disconnect
 			//from the service (I think).
 
